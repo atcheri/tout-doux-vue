@@ -149,7 +149,7 @@ input:checked ~ .bubble::after {
   margin-top: 1rem;
 }
 
-.create-todo input[type="submit"] {
+.create-todo button[type="submit"] {
   display: block;
   width: 100%;
   font-size: 1.125rem;
@@ -174,10 +174,8 @@ input:checked ~ .bubble::after {
   display: flex;
   align-items: center;
   background-color: #fff;
-  padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: var(--shadow);
-  margin-bottom: 1rem;
 }
 
 .todo-item label {
