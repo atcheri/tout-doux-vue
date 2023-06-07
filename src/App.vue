@@ -9,6 +9,7 @@ import ToDoList from "./components/ToDoList.vue";
         <img src="/logo.svg" class="h-16 w-16" alt="Tout-Doux logo" />
       </a>
       <h1 class="text-3xl font-bold">Tout-Doux List</h1>
+      <h2 class="text-xl font-semibold">Powered by Vite + Vuejs 3 + TS</h2>
     </section>
     <ToDoList />
   </main>

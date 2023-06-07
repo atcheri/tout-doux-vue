@@ -82,6 +82,8 @@ onMounted(() => {
       </div>
       <button :disabled="disabled" type="submit">Add a todo</button>
     </form>
+  </section>
+  <secction>
     <div class="todo-list my-2">
       <ul class="list">
         <li
@@ -94,7 +96,7 @@ onMounted(() => {
             <span :class="`bubble ${todo.category}`"></span>
           </label>
           <div class="todo-content">
-            <input type="text" v-model="todo.content" />
+            <input class="todo-input" type="text" v-model="todo.content" />
           </div>
           <div class="actions">
             <button class="delete" @click="removeTodo(todo.id)">Delete</button>
@@ -102,7 +104,7 @@ onMounted(() => {
         </li>
       </ul>
     </div>
-  </section>
+  </secction>
 </template>
 
 <style scoped></style>
