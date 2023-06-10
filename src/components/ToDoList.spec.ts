@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom/extend-expect";
 
-import { render, screen, waitFor } from "@testing-library/vue";
+import { render, screen } from "@testing-library/vue";
 
 import ToDoListVue from "./ToDoList.vue";
 import userEvent from "@testing-library/user-event";
@@ -49,6 +49,25 @@ describe("<ToDoList />", () => {
 
         // assert
         expect(button).not.toBeDisabled();
+      });
+    });
+  });
+
+  describe("Given a valid form", () => {
+    describe("When clicking the Add Todo button", () => {
+      it("displays the new todo in the list", async () => {
+        // arrange
+        render(ToDoListVue);
+        const input = screen.getByRole("textbox", { name: /todo/i });
+        const button = screen.getByText("Add a todo");
+        const category = screen.getByLabelText(/personal/i);
+
+        // act
+        await userEvent.type(input, "this is a new todo");
+        await userEvent.click(category);
+        await userEvent.click(button);
+
+        screen.getByRole("button", { name: "delete-todo" });
       });
     });
   });

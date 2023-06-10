@@ -8,9 +8,6 @@ const category = ref(null);
 const content = ref("");
 
 const disabled = computed(() => !category.value || !content.value.trim());
-// const disabled = computed<boolean>(() => {
-//   return !category.value || !content.value.trim();
-// });
 
 const addTodo = () => {
   if (!category.value || !content.value.trim()) {
@@ -102,7 +99,13 @@ onMounted(() => {
             <input class="todo-input" type="text" v-model="todo.content" />
           </div>
           <div class="actions">
-            <button class="delete" @click="removeTodo(todo.id)">Delete</button>
+            <button
+              aria-label="delete-todo"
+              class="delete"
+              @click="removeTodo(todo.id)"
+            >
+              Delete
+            </button>
           </div>
         </li>
       </ul>
