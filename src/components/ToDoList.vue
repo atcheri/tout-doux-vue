@@ -8,6 +8,9 @@ const category = ref(null);
 const content = ref("");
 
 const disabled = computed(() => !category.value || !content.value.trim());
+// const disabled = computed<boolean>(() => {
+//   return !category.value || !content.value.trim();
+// });
 
 const addTodo = () => {
   if (!category.value || !content.value.trim()) {
@@ -39,10 +42,6 @@ watch(
   { deep: true }
 );
 
-watch(content, (newContent) => {
-  console.log("changed with", newContent);
-});
-
 onMounted(() => {
   todos.value = storage.getTodos();
 });
@@ -54,6 +53,8 @@ onMounted(() => {
       <h4>What do you need tout doux?</h4>
       <input
         type="text"
+        name="todo"
+        aria-label="todo"
         v-model="content"
         placeholder="something in your mind?"
       />
@@ -62,6 +63,7 @@ onMounted(() => {
         <label>
           <input
             type="radio"
+            aria-label="business"
             name="category"
             value="business"
             v-model="category"
@@ -72,6 +74,7 @@ onMounted(() => {
         <label>
           <input
             type="radio"
+            aria-label="personal"
             name="category"
             value="personal"
             v-model="category"
@@ -83,7 +86,7 @@ onMounted(() => {
       <button :disabled="disabled" type="submit">Add a todo</button>
     </form>
   </section>
-  <secction>
+  <section>
     <div class="todo-list my-2">
       <ul class="list">
         <li
@@ -104,7 +107,7 @@ onMounted(() => {
         </li>
       </ul>
     </div>
-  </secction>
+  </section>
 </template>
 
 <style scoped></style>
